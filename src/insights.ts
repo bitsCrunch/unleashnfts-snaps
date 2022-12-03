@@ -29,6 +29,7 @@ type FourByteSignature = {
 /* eslint-enable @typescript-eslint/naming-convention */
 
 const getNFTData = (data, priceData) => {
+  console.log(priceData, "price")
   let nftData = {
     estimatedPrice: `No data avaialable!`,
     washtrade_suspect_sales: `No data avaialable!`,
@@ -37,12 +38,13 @@ const getNFTData = (data, priceData) => {
   };
   let isGood = false;
   if (priceData && priceData.price_estimate) {
-    nftData.estimatedPrice = `${data.price_estimate.value} ETH`;
+    nftData.estimatedPrice = `${priceData.price_estimate.value} ETH`;
   }
   if (data && data.metric_values) {
     let washtrade_change =
       data.metric_values.volume.value /
       data.metric_values.washtrade_volume.value;
+      console.log(washtrade_change,"change")
     isGood = typeof washtrade_change === 'number' && washtrade_change > 10;
     nftData.washtrade_suspect_sales = ` ${isGood ? warningIcon : ''} ${
       data.metric_values.washtrade_suspect_sales.value
@@ -50,7 +52,7 @@ const getNFTData = (data, priceData) => {
     nftData.washtrade_volume = `${isGood ? warningIcon : ''} ${
       data.metric_values.washtrade_volume.value
     } USD ${
-      isNaN(washtrade_change) ? '' : '(' + washtrade_change.toFixed(2) + '%)'
+      isNaN(washtrade_change) || !isFinite(washtrade_change) ? '' : '(' + washtrade_change.toFixed(2) + '%)'
     }`;
     nftData.washtrade_wallets = `${isGood ? warningIcon : ''} ${
       data.metric_values.washtrade_wallets.value
