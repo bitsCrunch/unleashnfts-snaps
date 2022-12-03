@@ -20,3 +20,32 @@ This repository was built using official examples from [MetaMask's Snap template
 - **Market Place: Suspected Washtraded Sales** - The number of suspicious washtraded sales in the market where NFT is traded.
 - **Market Place: Washtraded Volume** - Total marketplace washtraded sales volume in USD
 - **Market Place: Washtraded Wallets** - The number of washtraders trading in the marketplace.
+
+## How to use unleashnfts-snap:
+### Prerequisites
+- Nodejs 16 or higher is required. 
+- MetaMask Flask: It is available for installed via this [link](https://chrome.google.com/webstore/detail/metamask-flask-developmen/ljfoeinjpaedjfecbmggjgodbgkmjkjk). Because we cannot have multiple MetaMask versions in the same browser profile. So we have a choice between the two options. 1. Remove the existing MetaMask and install the MetaMask Flask from here. 2. Make a new browser profile and install the MetaMask Flask.
+- API KEY from [UnleashNFTs](UnleashNFTs.com) - To request an API key, please send an email to info@bitscrunch.com with your organisation's name, field of work, designation, and project details.
+
+### Installation
+1. Clone this repository. 
+```
+git clone https://github.com/bitsCrunch/unleashnfts-snaps`
+cd unleashnfts-snaps
+```
+2. Install dependencies
+```
+yarn install
+```
+3. Update file ‘env.data.json’ under root path with the API_KEY obtained from [UnleashNFTs](UnleashNFTs.com). 
+```
+{
+UNLEASH_NFTS_API_KEY: “<PASTE THE UNLEASHNFTS API_KEY HERE>”
+}
+```
+4. Run the unleashnfts-snaps
+```
+yarn start
+```
+5. Navigate to http://localhost:8087 and click the 'Install UnleashNFTs-snap' button, then follow the instructions on the MetaMask UI.
+6. Go to the OpenSea market (https://opensea.io). Use the MetaMask wallet to connect and trade any NFT. The UnleashNFTs tab will appear in the transaction approval window. If the NFT being traded is supported by UnleashNFTs, the tab will show statistics about price estimation and wash trading for the NFT, Collection, and Marketplace. After reviewing the analytics provided by UnleashNFTs-snaps, the transaction initiator can accept or reject the transaction.
