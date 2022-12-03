@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, Snaps!</title>
+    <link rel="icon" type="image/svg" href="./images/icon.svg" />
+  </head>
+
+  <body>
+    <h1>Unleash NFTs - Snaps!</h1>
+    <p>Forensic and AI-powered NFT analytics that fight wash trading, fraud and give accurate value for digital assets.</p>
+    <br />
+
+    <button class="connect">Install Unleash NFTs Snap</button>
+    <button class="updateCap">Test Transaction</button>
+  </body>
+
+  <script>
+    const snapId = `local:${window.location.href}`;
+
+    const connectButton = document.querySelector('button.connect');
+    const updateCapButton = document.querySelector('button.updateCap');
+
+    const send = (data) => async () => {
+      try {
+        // Get the user's account from MetaMask.
+        const accounts = await ethereum.request({
+          method: 'eth_requestAccounts',
+        });
+        const from = accounts[0];
+
+        // Send a transaction to MetaMask.
+        await ethereum.request({
+          method: 'eth_sendTransaction',
+          params: [
+            {
+              from,
+              to: '0x00000000006c3852cbef3e08e8df289169ede581',
+              value: '0x0',
+              data,
+            },
+          ],
+        });
+      } catch (err) {
+        console.error(err);
+        alert('Problem happened: ' + err.message || err);
+      }
+    };
+
+    connectButton.addEventListener('click', connect);
+
+    updateCapButton.addEventListener(
+      'click',
+      send(
+        '0xfb0f3ee100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a8c0ff92d4c00000000000000000000000000078b2ade6eabe66ea15db39b94dac2d8c0d2c4058',
+      ),
+    );
+
+    // here we get permissions to interact with and install the snap
+    async function connect() {
+      await ethereum.request({
+        method: 'wallet_enable',
+        params: [
+          {
+            wallet_snap: {
+              [snapId]: {},
+            },
+          },
+        ],
+      });
+    }
+  </script>
+</html>

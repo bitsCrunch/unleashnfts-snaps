@@ -1,14 +1,8 @@
 {
+  "extends": "../../../../tsconfig.packages.json",
   "compilerOptions": {
-    "declaration": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "useUnknownInCatchVariables": false,
-    "sourceMap": true,
-    "strict": true,
-    "target": "ES2017"
+    "typeRoots": ["../../../../node_modules/@types"]
   },
-  "exclude": ["**/__snapshots__/**", "**/test/**", "**/*.test.ts"]
+  "files": ["../../../snaps-types/global.d.ts"],
+  "include": ["src"]
 }
