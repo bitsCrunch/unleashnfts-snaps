@@ -40,7 +40,7 @@ yarn install
 3. Update file ‘env.data.json’ under root path with the API_KEY obtained from [UnleashNFTs](UnleashNFTs.com). 
 ```
 {
-UNLEASH_NFTS_API_KEY: "<PASTE THE UNLEASHNFTS API_KEY HERE>"
+"UNLEASH_NFTS_API_KEY": "<PASTE THE UNLEASHNFTS API_KEY HERE>"
 }
 ```
 4. Run the unleashnfts-snaps
