@@ -4,10 +4,10 @@
   "proposedName": "Unleash NFTs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/snaps-monorepo.git"
+    "url": "https://github.com/bitsCrunch/unleashnfts-snaps.git"
   },
   "source": {
-    "shasum": "X2pqgiHucyOQuzQi3+XhmmSKKjbhPgpU7AT8QOPtRyQ=",
+    "shasum": "KHdaGmKNjDDyfa/by7lBR+waAwEgTD0HXtWiQBDOJdU=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",

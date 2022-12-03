@@ -29,7 +29,7 @@ type FourByteSignature = {
 /* eslint-enable @typescript-eslint/naming-convention */
 
 const getNFTData = (data, priceData) => {
-  console.log(priceData, "price")
+  console.log(priceData, 'price');
   let nftData = {
     estimatedPrice: `No data avaialable!`,
     washtrade_suspect_sales: `No data avaialable!`,
@@ -44,15 +44,21 @@ const getNFTData = (data, priceData) => {
     let washtrade_change =
       data.metric_values.volume.value /
       data.metric_values.washtrade_volume.value;
-      console.log(washtrade_change,"change")
-    isGood = typeof washtrade_change === 'number' && washtrade_change > 10;
+    console.log(washtrade_change, 'change');
+    isGood =
+      typeof washtrade_change === 'number' &&
+      washtrade_change > 10 &&
+      !isNaN(washtrade_change) &&
+      isFinite(washtrade_change);
     nftData.washtrade_suspect_sales = ` ${isGood ? warningIcon : ''} ${
       data.metric_values.washtrade_suspect_sales.value
     }`;
     nftData.washtrade_volume = `${isGood ? warningIcon : ''} ${
       data.metric_values.washtrade_volume.value
     } USD ${
-      isNaN(washtrade_change) || !isFinite(washtrade_change) ? '' : '(' + washtrade_change.toFixed(2) + '%)'
+      isNaN(washtrade_change) || !isFinite(washtrade_change)
+        ? ''
+        : '(' + washtrade_change.toFixed(2) + '%)'
     }`;
     nftData.washtrade_wallets = `${isGood ? warningIcon : ''} ${
       data.metric_values.washtrade_wallets.value
@@ -68,12 +74,16 @@ const getCollectionData = (data) => {
     washtrade_volume: `No data avaialable!`,
     washtrade_wallets: `No data avaialable!`,
   };
-  let isGood = true;
+  let isGood = false;
   if (data && data.metric_values) {
     let washtrade_change =
       data.metric_values.volume.value /
       data.metric_values.washtrade_volume.value;
-    isGood = typeof washtrade_change === 'number' && washtrade_change > 10;
+    isGood =
+      typeof washtrade_change === 'number' &&
+      washtrade_change > 10 &&
+      !isNaN(washtrade_change) &&
+      isFinite(washtrade_change);
     collectionData.washtrade_level = `${isGood ? warningIcon : ''} ${
       data.metric_values.washtrade_level.value
     }`;
@@ -103,7 +113,11 @@ const getMarketPlaceData = (data) => {
     let washtrade_change =
       data.metric_values.volume.value /
       data.metric_values.washtrade_volume.value;
-    isGood = typeof washtrade_change === 'number' && washtrade_change > 10;
+    isGood =
+      typeof washtrade_change === 'number' &&
+      washtrade_change > 10 &&
+      !isNaN(washtrade_change) &&
+      isFinite(washtrade_change);
     marketplaceData.washtrade_suspect_sales = `${isGood ? warningIcon : ''} ${
       data.metric_values.washtrade_suspect_sales.value
     }`;
@@ -301,7 +315,11 @@ export const getUnleashNFTsInsights = async (
     }
 
     // Return the function name and decoded arguments.
-    return nftInsights;
+    return {
+      'Contract Address': data.address,
+      'Token ID': data.tokenId,
+      ...nftInsights,
+    };
   } catch (error) {
     console.error(error);
     return {
