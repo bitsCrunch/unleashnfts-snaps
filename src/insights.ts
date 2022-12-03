@@ -297,9 +297,10 @@ export const getUnleashNFTsInsights = async (
         Error: 'Unleash NFTs API Key is not available.!',
       };
     }
+    let chainIdInt = parseInt(chainId.split(':')[1], 16);
 
     const nftInsights = await getUnleashNFTsInsightsData(
-      chainId.split(':')[1],
+      chainIdInt,
       data.address,
       data.tokenId,
       data.marketPlace,
