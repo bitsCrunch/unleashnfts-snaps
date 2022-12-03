@@ -30,7 +30,7 @@ This repository was built using official examples from [MetaMask's Snap template
 ### Installation
 1. Clone this repository. 
 ```
-git clone https://github.com/bitsCrunch/unleashnfts-snaps`
+git clone https://github.com/bitsCrunch/unleashnfts-snaps
 cd unleashnfts-snaps
 ```
 2. Install dependencies
