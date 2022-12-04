@@ -57,10 +57,10 @@ yarn start
 </p>
 
 ### Limitations
-- Seaport from Opensea Marketplace is aupported
-- Ethereum and Polygon chain is only supported
-- Handling API key can be more secured compared to the current approach
-- Insighta are available for limited number of NFTs for now
+- Only Opensea Marketplace is supported.
+- This snap can provide insights for NFTs only in Ethereum and Polygon chain.
+- Handling API key can be more secured compared to the current approach.
+- Insights are available for limited number of NFTs for now.
 
 ### Disclaimer 
 This is not investment advice it is only meant for informational purposes. Please consult with your investment, tax, or legal advisor before making any investment decisions.
