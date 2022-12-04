@@ -50,6 +50,12 @@ yarn start
 5. Navigate to http://localhost:8087 and click the 'Install UnleashNFTs-snap' button, then follow the instructions on the MetaMask UI.
 6. Go to the OpenSea market (https://opensea.io). Use the MetaMask wallet to connect and trade any NFT. The UnleashNFTs tab will appear in the transaction approval window. If the NFT being traded is supported by UnleashNFTs, the tab will show statistics about price estimation and wash trading for the NFT, Collection, and Marketplace. After reviewing the analytics provided by UnleashNFTs-snaps, the transaction initiator can accept or reject the transaction.
 
+### Demo
+<p align="center">
+    <img src="assets/unleashnfts-snap-demo.gif">
+    <br>
+</p>
+
 ### Limitations
 - Seaport from Opensea Marketplace is aupported
 - Ethereum and Polygon chain is only supported
