@@ -56,7 +56,7 @@ yarn start
     <br>
 </p>
 
-[![UnleashNFTS MetaMask Snap Demo]({image-url})]({[video-url](https://www.youtube.com/watch?v=6C-iJ3vZcYc) "UnleashNFTS MetaMask Snap")
+<a href="https://www.youtube.com/watch?v=6C-iJ3vZcYc" title="UnleashNFTS MetaMask Snap"><img src="assets/unleashnfts-snap-demo.gif" alt="UnleashNfts Snap Demo" /></a>
 
 ## Limitations
 - Only Opensea Marketplace is supported.
