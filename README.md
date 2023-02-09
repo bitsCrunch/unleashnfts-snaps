@@ -56,6 +56,8 @@ yarn start
     <br>
 </p>
 
+[![UnleashNFTS MetaMask Snap Demo]({image-url})]({[video-url]({https://www.youtube.com/watch?v=6C-iJ3vZcYc)} "UnleashNFTS MetaMask Snap")
+
 ## Limitations
 - Only Opensea Marketplace is supported.
 - This snap can provide insights for NFTs only in Ethereum and Polygon chain.
