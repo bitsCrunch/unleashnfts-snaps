@@ -56,7 +56,7 @@ yarn start
     <br>
 </p>
 
-[![UnleashNFTS MetaMask Snap Demo]({image-url})]({[video-url]({https://www.youtube.com/watch?v=6C-iJ3vZcYc)} "UnleashNFTS MetaMask Snap")
+[![UnleashNFTS MetaMask Snap Demo]({image-url})]({[video-url](https://www.youtube.com/watch?v=6C-iJ3vZcYc) "UnleashNFTS MetaMask Snap")
 
 ## Limitations
 - Only Opensea Marketplace is supported.
