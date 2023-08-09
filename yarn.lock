@@ -4185,9 +4185,9 @@ serve-handler@^6.1.5:
     range-parser "1.2.0"
 
 ses@^0.17.0:
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/ses/-/ses-0.17.0.tgz#4e37cd1c4003e4448df2e84983900ccc5e2f095a"
-  integrity sha512-ObQ4DF4OgkmuPVRZLSmB1E+8jWh6lnlSpN9JHnphAUb/5J6k7da+7kj63cXrz53NDPd69rUV3DsfRBNBx8xcPQ==
+  version "0.17.1"
+  resolved "https://registry.yarnpkg.com/ses/-/ses-0.17.1.tgz#acdbdbe21e2dc2531e99f432ba5cccd074d6ca05"
+  integrity sha512-8tNyKyDMCoMCYxkRIv6ZrBrBbYejrwpqOD3frAbZaim8JbI3D+x88mPfi32QeV3s3xQAdSsONCv0Ickrk/a2Cg==
 
 set-blocking@~2.0.0:
   version "2.0.0"
