@@ -18,3 +18,8 @@ dist
 /app/styles/tailwind.css
 
 app/types/api.ts
+
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+**/env.data.json
