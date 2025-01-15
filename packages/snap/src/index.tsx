@@ -75,8 +75,11 @@ export const onTransaction: OnTransactionHandler = async ({
             : value}
         </Text>
       ))}
-      <Text>&#9432; This is a disclaimer</Text>
-      <Link href='https://unleashnfts.com'>UnleashNfts</Link>
+      <Text>
+        &#9432; Estimates provided are for informational purposes only and do
+        not constitute financial advice.{' '}
+      </Text>
+      <Link href="https://unleashnfts.com">UnleashNfts</Link>
     </Box>
   );
   return {

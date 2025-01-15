@@ -12,7 +12,7 @@ import { ABIs } from './abi/abis';
 // import { address } from '@metamask/abi-utils/dist/parsers';
 
 // The API endpoint to get a list of functions by 4 byte signature.
-const API_ENDPOINT = 'https://dev-api.unleashnfts.com/api/v1';
+const API_ENDPOINT = 'https://api.unleashnfts.com/api/v1';
 
 // const goodValueIcon = '✅';
 // const noDataIcon = '❗';
@@ -249,22 +249,22 @@ export const decodeTrxData = (data: any) => {
     );
     let tokenAddress = '';
     let tokenId = '';
-    let tokenAssigned = false; 
+    let tokenAssigned = false;
 
     decodedData.forEach((i) => {
-      if (tokenAssigned) return; 
+      if (tokenAssigned) return;
       if (Array.isArray(i)) {
         i.forEach((j) => {
-          if (tokenAssigned) return; 
+          if (tokenAssigned) return;
           if (Array.isArray(j)) {
             j.forEach((k) => {
-              if (tokenAssigned) return; 
+              if (tokenAssigned) return;
               if (Array.isArray(k)) {
                 k.forEach((l) => {
-                  if (tokenAssigned) return; 
+                  if (tokenAssigned) return;
                   tokenAddress = l[1];
                   tokenId = l[2];
-                  tokenAssigned = true; 
+                  tokenAssigned = true;
                 });
               }
             });
@@ -300,6 +300,13 @@ export const getUnleashNFTsInsights = async (
       marketPlace: '',
     };
     const abiDecodedData = decodeTrxData(transaction.data);
+
+    if (!abiDecodedData) {
+      console.error('Failed to decode transaction data:', transaction.data);
+      return { Error: 'Failed to decode transaction data!' };
+    }
+
+
     if (!UNLEASH_NFTS_API_KEY) {
       return {
         Error: 'Unleash NFTs API Key is not available.!',
@@ -313,7 +320,6 @@ export const getUnleashNFTsInsights = async (
       abiDecodedData?.tokenId,
       // data.marketPlace,
     );
-    console.log(nftInsights, 'nftInsights');
 
     // No functions found for the signature.
 
@@ -326,8 +332,11 @@ export const getUnleashNFTsInsights = async (
 
     // Return the function name and decoded arguments.
     return {
-      'Contract Address': data.address,
-      'Token ID': data.tokenId,
+      'Contract Address': abiDecodedData?.tokenAddress,
+      'Token ID':
+        typeof abiDecodedData?.tokenId === 'bigint'
+          ? String(Number(abiDecodedData.tokenId))
+          : String(abiDecodedData?.tokenId),
       ...nftInsights,
     };
   } catch (error) {
