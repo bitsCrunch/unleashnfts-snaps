@@ -19108,9 +19108,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unleashnfts-snap@workspace:.":
+"unleashnfts@workspace:.":
   version: 0.0.0-use.local
-  resolution: "unleashnfts-snap@workspace:."
+  resolution: "unleashnfts@workspace:."
   dependencies:
     "@lavamoat/allow-scripts": ^3.0.0
     "@lavamoat/preinstall-always-fail": ^2.0.0
