@@ -1,7 +1,7 @@
 {
   "name": "unleashnfts",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "description": "",
   "homepage": "https://github.com/MetaMask/template-snap-monorepo#readme",
   "bugs": {
