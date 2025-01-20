@@ -306,7 +306,6 @@ export const getUnleashNFTsInsights = async (
       return { Error: 'Failed to decode transaction data!' };
     }
 
-
     if (!UNLEASH_NFTS_API_KEY) {
       return {
         Error: 'Unleash NFTs API Key is not available.!',
@@ -330,13 +329,13 @@ export const getUnleashNFTsInsights = async (
       };
     }
 
-    // Return the function name and decoded arguments.
     return {
       'Contract Address': abiDecodedData?.tokenAddress,
-      'Token ID':
-        typeof abiDecodedData?.tokenId === 'bigint'
-          ? String(Number(abiDecodedData.tokenId))
-          : String(abiDecodedData?.tokenId),
+      'Token ID': String(abiDecodedData?.tokenId),
+      // 'Token ID':
+      //   typeof abiDecodedData?.tokenId === 'bigint'
+      //     ? String(Number(abiDecodedData.tokenId))
+      //     : String(abiDecodedData?.tokenId),
       ...nftInsights,
     };
   } catch (error) {
