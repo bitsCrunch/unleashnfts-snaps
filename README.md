@@ -4,13 +4,13 @@ UnleashNFTs Snap provides a seamless and intuitive interface to help you evaluat
 
 # Features
 
-🎯 AI-Powered Price Estimation - Evaluate the worth of supported NFTs based on past transactions, market trends, and rarity metrics.
+🎯 **AI-Powered Price Estimation** - Evaluate the worth of supported NFTs based on past transactions, market trends, and rarity metrics.
 
-🛡️ Wash Trade Detection - Detect artificial trading activity designed to inflate NFT prices and stay protected from overpriced purchases.
+🛡️ **Wash Trade Detection** - Detect artificial trading activity designed to inflate NFT prices and stay protected from overpriced purchases.
 
-🌐 Blockchain Support - Compatible with Ethereum, Polygon, Binance, Linea, Solana, and Avax.
+🌐 **Blockchain Support** - Compatible with Ethereum, Polygon, Binance, Linea, Solana, and Avax.
 
-🛒 Marketplace Integration - Currently supports OpenSea.
+🛒 **Marketplace Integration** - Currently supports OpenSea.
 
 # @metamask/template-snap-monorepo
 
