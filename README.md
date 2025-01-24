@@ -1,3 +1,17 @@
+# UnleashNFTs
+
+UnleashNFTs Snap provides a seamless and intuitive interface to help you evaluate the true worth of NFTs—whether you considering a sale or purchase. This ensures you avoid overpaying for inflated prices and sell at fair market value.
+
+# Features
+
+🎯 AI-Powered Price Estimation - Evaluate the worth of supported NFTs based on past transactions, market trends, and rarity metrics.
+
+🛡️ Wash Trade Detection - Detect artificial trading activity designed to inflate NFT prices and stay protected from overpriced purchases.
+
+🌐 Blockchain Support - Compatible with Ethereum, Polygon, Binance, Linea, Solana, and Avax.
+
+🛒 Marketplace Integration - Currently supports OpenSea.
+
 # @metamask/template-snap-monorepo
 
 This repository demonstrates how to develop a snap with TypeScript. For detailed
