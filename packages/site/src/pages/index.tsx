@@ -118,7 +118,7 @@ const Index = () => {
   return (
     <Container>
       <Heading>
-        <Span>UnleashNfts Snap</Span>
+        <Span>UnleashNFTs Snap</Span>
       </Heading>
       <Subtitle>
         by <code>bitsCrunch</code>
@@ -145,7 +145,7 @@ const Index = () => {
             content={{
               title: 'Connect',
               description:
-                'Get started by connecting to and installing the UnleashNfts snap.',
+                'Get started by connecting to and installing the UnleashNFTs snap.',
               button: (
                 <ConnectButton
                   onClick={requestSnap}

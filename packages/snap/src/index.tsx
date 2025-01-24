@@ -79,6 +79,11 @@ export const onTransaction: OnTransactionHandler = async ({
         &#9432; Estimates provided are for informational purposes only and do
         not constitute financial advice.{' '}
       </Text>
+      <Text>
+        Note: Insights can only be generated for one NFT at a time. If there are
+        multiple items in your cart, please reduce it to a single NFT to
+        proceed.
+      </Text>
       <Link href="https://unleashnfts.com">UnleashNfts</Link>
     </Box>
   );

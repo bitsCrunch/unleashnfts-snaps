@@ -1,15 +1,10 @@
-// import { decode } from '@metamask/abi-utils';
 import {
-  //   add0x,
-  //   bytesToHex,
   hasProperty,
   isObject,
-  //   remove0x,
 } from '@metamask/utils';
 import { UNLEASH_NFTS_API_KEY } from '../env.data.json';
 import { Interface } from 'ethers';
 import { ABIs } from './abi/abis';
-// import { address } from '@metamask/abi-utils/dist/parsers';
 
 // The API endpoint to get a list of functions by 4 byte signature.
 const API_ENDPOINT = 'https://api.unleashnfts.com/api/v1';
@@ -38,9 +33,10 @@ const getNFTData = (data: any, priceData: any) => {
     washtrade_volume: `No data avaialable!`,
     washtrade_wallets: `No data avaialable!`,
   };
+
   let isGood = false;
-  if (priceData && priceData.price_estimate) {
-    nftData.estimatedPrice = `${priceData.price_estimate.value} ETH`;
+  if (priceData && priceData?.metric_values?.price_estimate) {
+    nftData.estimatedPrice = `${priceData?.metric_values?.price_estimate.value} ETH`;
   }
   if (data && data.metric_values) {
     let washtrade_change =
@@ -196,10 +192,10 @@ export const getUnleashNFTsInsightsData = async (
         nftPriceEstimateResponseJson,
       ).washtrade_volume,
 
-      'NFT: Suspected Washtraded Wallets': getNFTData(
-        nftResponseJson,
-        nftPriceEstimateResponseJson,
-      ).washtrade_wallets,
+      // 'NFT: Suspected Washtraded Wallets': getNFTData(
+      //   nftResponseJson,
+      //   nftPriceEstimateResponseJson,
+      // ).washtrade_wallets,
 
       // 'Collection: Suspected Washtrade Level': getCollectionData(
       //   collectionResponseJson,
@@ -242,6 +238,7 @@ export const getUnleashNFTsInsightsData = async (
 export const decodeTrxData = (data: any) => {
   const iface = new Interface(ABIs);
   const functionFragment = iface.parseTransaction({ data: data });
+
   if (functionFragment?.name) {
     const decodedData = iface.decodeFunctionData(
       functionFragment?.name.toString(),
@@ -251,27 +248,75 @@ export const decodeTrxData = (data: any) => {
     let tokenId = '';
     let tokenAssigned = false;
 
-    decodedData.forEach((i) => {
-      if (tokenAssigned) return;
-      if (Array.isArray(i)) {
-        i.forEach((j) => {
-          if (tokenAssigned) return;
-          if (Array.isArray(j)) {
-            j.forEach((k) => {
-              if (tokenAssigned) return;
-              if (Array.isArray(k)) {
-                k.forEach((l) => {
-                  if (tokenAssigned) return;
-                  tokenAddress = l[1];
-                  tokenId = l[2];
-                  tokenAssigned = true;
-                });
-              }
-            });
-          }
-        });
-      }
-    });
+    // console.log('DECODED DATA -->>', decodedData);
+    // console.dir(decodedData, { depth: null });
+    // console.log(
+    //   JSON.stringify(
+    //     decodedData,
+    //     (key, value) => (typeof value === 'bigint' ? value.toString() : value),
+    //     2,
+    //   ),
+    // );
+
+    if (functionFragment?.name === 'fulfillBasicOrder_efficient_6GL6yc') {
+      const decodedArr = decodedData[0]?.toString()?.split(',');
+
+      // <<-- WAY 1 -->>
+      tokenAddress = decodedArr?.[5];
+      tokenId = decodedArr?.[6];
+
+      // <<----- DO NOT REMOVE THIS, THIS WORKS    <<-- WAY 2 -->> ------->>>>
+
+      // decodedData.forEach((item, itemIndex) => {
+      //   console.log(`Decoded Data [${itemIndex}]:`, item);
+
+      //   // Extract `tokenId` from decodedData[0][6]
+      //   if (itemIndex === 0 && typeof item === 'object') {
+      //     tokenId = item[6]; // Assuming this is always present at key `6`
+      //     console.log('Token ID:', tokenId);
+      //   }
+
+      //   // Extract `tokenAddress` from SubItem[5]
+      //   if (Array.isArray(item)) {
+      //     item.forEach((subItem, subItemIndex) => {
+      //       console.log(`SubItem [${subItemIndex}]:`, subItem);
+
+      //       if (subItemIndex === 5) {
+      //         tokenAddress = subItem;
+      //         console.log('Token Address:', tokenAddress);
+      //       }
+      //     });
+      //   }
+      // });
+    } else if (functionFragment?.name === 'fulfillAvailableAdvancedOrders') {
+      const decodedArr = decodedData[0][1][0][2]?.toString()?.split(',');
+      tokenAddress = decodedArr?.[1];
+      tokenId = decodedArr?.[2];
+    } else {
+      //ORIGINAL
+      decodedData.forEach((i) => {
+        if (tokenAssigned) return;
+        if (Array.isArray(i)) {
+          i.forEach((j) => {
+            if (tokenAssigned) return;
+            if (Array.isArray(j)) {
+              j.forEach((k) => {
+                if (tokenAssigned) return;
+                if (Array.isArray(k)) {
+                  k.forEach((l) => {
+                    if (tokenAssigned) return;
+                    tokenAddress = l[1];
+                    tokenId = l[2];
+                    tokenAssigned = true;
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
+    }
+
     return { tokenAddress, tokenId };
   }
 };
@@ -343,9 +388,6 @@ export const getUnleashNFTsInsights = async (
     // const data = decodeTransactionData(transaction.to, transaction.data);
     return {
       Error: `Problem in fetching insights for this transaction! ${error}`,
-      //   tranModifiedDATA: `DATA: ${JSON.stringify(data)}`,
-      //   chain: JSON.stringify(parseInt(chainId.split(':')[1])),
-      // tran: JSON.stringify(transaction.data)
     };
   }
 };
