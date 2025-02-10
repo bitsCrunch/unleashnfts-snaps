@@ -1,5 +1,6 @@
 import styled, { useTheme } from 'styled-components';
 
+// eslint-disable-next-line no-unused-vars
 import { ReactComponent as MetaMaskFox } from '../assets/metamask_fox.svg';
 import { MetaMask } from './MetaMask';
 import { PoweredBy } from './PoweredBy';

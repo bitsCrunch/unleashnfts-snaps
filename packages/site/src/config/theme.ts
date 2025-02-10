@@ -3,9 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const breakpoints = ['600px', '768px', '992px'];
 
-/**
- * Common theme properties.
- */
+
 const theme = {
   fonts: {
     default:
@@ -36,9 +34,7 @@ const theme = {
   },
 };
 
-/**
- * Light theme color properties.
- */
+
 export const light: DefaultTheme = {
   colors: {
     background: {
@@ -75,9 +71,6 @@ export const light: DefaultTheme = {
   ...theme,
 };
 
-/**
- * Dark theme color properties
- */
 export const dark: DefaultTheme = {
   colors: {
     background: {
@@ -120,7 +113,9 @@ export const dark: DefaultTheme = {
  * @param props - Styled Components props.
  * @returns Global style React component.
  */
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle: ReturnType<
+  typeof createGlobalStyle
+> = createGlobalStyle`
   html {
     /* 62.5% of the base size of 16px = 10px.*/
     font-size: 62.5%;

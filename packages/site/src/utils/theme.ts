@@ -6,7 +6,7 @@ import { getLocalStorage, setLocalStorage } from './localStorage';
  *
  * @returns True if the theme is "dark" otherwise, false.
  */
-export const getThemePreference = () => {
+export const getThemePreference = (): boolean => {
   if (typeof window === 'undefined') {
     return false;
   }

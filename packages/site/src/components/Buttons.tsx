@@ -1,6 +1,7 @@
 import type { ComponentProps } from 'react';
 import styled from 'styled-components';
 
+// eslint-disable-next-line no-unused-vars
 import { ReactComponent as FlaskFox } from '../assets/flask_fox.svg';
 import { useMetaMask, useRequestSnap } from '../hooks';
 import { shouldDisplayReconnectButton } from '../utils';

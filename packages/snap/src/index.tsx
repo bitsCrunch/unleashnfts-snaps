@@ -57,11 +57,12 @@ export const onTransaction: OnTransactionHandler = async ({
   chainId,
 }) => {
   const insights = await getUnleashNFTsInsights(transaction, chainId);
-  console.log(insights, 'INSIGHTS');
-  const formatNumber = (num: any) => {
-    if (num >= 1_000_000_000) return `${(num / 1_000_000_000).toFixed(1)}b`;
-    if (num >= 1_000_000) return `${(num / 1_000_000).toFixed(1)}m`;
-    if (num >= 1_000) return `${(num / 1_000).toFixed(1)}k`;
+  const formatNumber = (num: string | number) => {
+    if (Number(num) >= 1_000_000_000)
+      return `${(Number(num) / 1_000_000_000).toFixed(1)}b`;
+    if (Number(num) >= 1_000_000)
+      return `${(Number(num) / 1_000_000).toFixed(1)}m`;
+    if (Number(num) >= 1_000) return `${(Number(num) / 1_000).toFixed(1)}k`;
     return num;
   };
   const content = (
@@ -71,8 +72,8 @@ export const onTransaction: OnTransactionHandler = async ({
         <Text key={key}>
           <Bold>{key}:</Bold>{' '}
           {key !== 'Contract Address' && key !== 'Token ID'
-            ? formatNumber(value)
-            : value}
+            ? formatNumber(value).toString()
+            : value.toString()}{' '}
         </Text>
       ))}
       <Text>
