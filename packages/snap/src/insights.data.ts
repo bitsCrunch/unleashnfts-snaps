@@ -4,7 +4,6 @@ import { ABIs } from './abi/abis';
 
 const API_ENDPOINT = 'https://unleashnfts.com/api';
 
-
 const warningIcon = '❗';
 
 type PriceData = {
@@ -227,7 +226,6 @@ export const getUnleashNFTsInsights = async (
   chainId: string | number,
 ) => {
   try {
-    console.log('transaction -->>', transaction);
     if (
       !isObject(transaction) ||
       !hasProperty(transaction, 'data') ||
@@ -238,11 +236,6 @@ export const getUnleashNFTsInsights = async (
       };
     }
 
-    const data = {
-      address: '',
-      tokenId: '',
-      marketPlace: '',
-    };
     const abiDecodedData = decodeTrxData(transaction.data);
 
     if (!abiDecodedData) {
@@ -262,7 +255,6 @@ export const getUnleashNFTsInsights = async (
       chainIdInt,
       abiDecodedData?.tokenAddress,
       abiDecodedData?.tokenId,
-      // data.marketPlace,
     );
     
     if (!nftInsights) {

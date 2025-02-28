@@ -1,6 +1,6 @@
 {
   "name": "unleashnfts",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "",
   "homepage": "https://github.com/MetaMask/template-snap-monorepo#readme",
   "bugs": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "https://github.com/bitsCrunch/unleashnfts-snaps"
   },
   "license": "(MIT-0 OR Apache-2.0)",
   "author": "",

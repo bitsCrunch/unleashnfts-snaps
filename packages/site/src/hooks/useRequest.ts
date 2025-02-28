@@ -29,9 +29,12 @@ export const useRequest = () => {
         } as RequestArguments)) ?? null;
 
       return data;
-    } catch (requestError: any) {
-      setError(requestError);
-
+    } catch (requestError: unknown) {
+      if (requestError instanceof Error) {
+        setError(requestError);
+      } else {
+        setError(new Error('An unknown error occurred'));
+      }
       return null;
     }
   };
