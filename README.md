@@ -1,68 +1,67 @@
-# UnleashNFTs-snap
+# UnleashNFTs
 
-# Project Description:
+UnleashNFTs Snap provides a seamless and intuitive interface to help you evaluate the true worth of NFTs—whether you considering a sale or purchase. This ensures you avoid overpaying for inflated prices and sell at fair market value.
 
+# Features
 
-UnleashNFTs-snap is a Metamask addon that offers specialised transaction insights when trading NFT on well-known marketplaces like OpenSea, X2y2, etc. It makes use of the UnleashNFTs api and Metamask Snaps to deliver the most comprehensive data-driven NFT insights. It offers NFT analytics and forensics driven by AI that combat fraud and wash trading while providing correct price estimation for digital assets. 
+🎯 **AI-Powered Price Estimation** - Evaluate the worth of supported NFTs based on past transactions, market trends, and rarity metrics.
 
-# How its made:
+🛡️ **Wash Trade Detection** - Detect artificial trading activity designed to inflate NFT prices and stay protected from overpriced purchases.
 
-This repository was built using official examples from [MetaMask's Snap template](https://github.com/MetaMask/snaps-monorepo/tree/main/packages/examples/examples/insights). This snap retrieves information from the upcoming transaction, such as the NFT token id, contract address, and marketplace. Using the [UnleashNFTs API](https://docs.unleashnfts.com), it enriches additional information about transactions such as washtrading and price estimation details of the NFTs being traded. When approving a transaction in the metamask, users can find this information in a new tab called Unleash NFTs. The new tab contains the following information to help NFT traders to make an informed decision before purchasing NFTs.
+🌐 **Blockchain Support** - Compatible with Ethereum, Polygon, Binance, Linea, Solana, and Avax.
 
-- **NFT: Estimated Price** - Estimated NFT price in ETH traded using our robust in-house Ai model. 
-- **NFT: Suspected Washtraded Sales** - The number of suspicious sales in the NFT that have washtrading evidence
-- **NFT: Washtraded Volume** - Total volume of washtraded sales (in USD) traded on the NFT
-- **NFT: Washtraded Wallets** - Number of washtraders in the ownership history of the traded NFTs
-- **Collection: Suspected Washtrade Level (1-100)** - The collection's washtrade level index, with 1 denoting no washtrading and 100 denoting a high level of washtrading.
-- **Collection: Suspected Washtraded Sales** - Number of suspicious sales in the NFT collection having evidence of washtrade
-- **Collection: Suspected Washtraded Volume** - Total volume of washtraded sales in the NFT being traded
-- **Collection: Suspected Washtraded Wallets** - The number of washtraders in the NFT collection.
-- **Market Place: Suspected Washtraded Sales** - The number of suspicious washtraded sales in the market where NFT is traded.
-- **Market Place: Suspected Washtraded Volume** - Total marketplace washtraded sales volume in USD
-- **Market Place: Suspected Washtraded Wallets** - The number of washtraders trading in the marketplace.
+🛒 **Marketplace Integration** - Currently supports OpenSea.
 
-## How to use unleashnfts-snap:
-### Prerequisites
-- Nodejs 16 or higher is required. 
-- MetaMask Flask: It is available for installation via this [link](https://chrome.google.com/webstore/detail/metamask-flask-developmen/ljfoeinjpaedjfecbmggjgodbgkmjkjk). Because we cannot have multiple MetaMask versions in the same browser profile. So we have a choice between the two options. 1. Remove the existing MetaMask and install the MetaMask Flask from here. 2. Make a new browser profile and install the MetaMask Flask.
-- API KEY from [UnleashNFTs](UnleashNFTs.com) - To request an API key, please send an email to info@bitscrunch.com with your organisation's name, field of work, designation, and project details.
+# @metamask/template-snap-monorepo
 
-### Installation
-1. Clone this repository. 
+This repository demonstrates how to develop a snap with TypeScript. For detailed
+instructions, see [the MetaMask documentation](https://docs.metamask.io/guide/snaps.html#serving-a-snap-to-your-local-environment).
+
+MetaMask Snaps is a system that allows anyone to safely expand the capabilities
+of MetaMask. A _snap_ is a program that we run in an isolated environment that
+can customize the wallet experience.
+
+## Snaps is pre-release software
+
+To interact with (your) Snaps, you will need to install [MetaMask Flask](https://metamask.io/flask/),
+a canary distribution for developers that provides access to upcoming features.
+
+## Getting Started
+
+Clone the template-snap repository [using this template](https://github.com/MetaMask/template-snap-monorepo/generate)
+and set up the development environment:
+
+```shell
+yarn install && yarn start
 ```
-git clone https://github.com/bitsCrunch/unleashnfts-snaps
-cd unleashnfts-snaps
-```
-2. Install dependencies
-```
-yarn install
-```
-3. Update file ‘env.data.json’ under root path with the API_KEY obtained from [UnleashNFTs](UnleashNFTs.com). 
-```
-{
-"UNLEASH_NFTS_API_KEY": "<PASTE THE UNLEASHNFTS API_KEY HERE>"
-}
-```
-4. Run the unleashnfts-snaps
-```
-yarn start
-```
-5. Navigate to http://localhost:8087 and click the 'Install UnleashNFTs-snap' button, then follow the instructions on the MetaMask UI.
-6. Go to the OpenSea market (https://opensea.io). Use the MetaMask wallet to connect and trade any NFT. The UnleashNFTs tab will appear in the transaction approval window. If the NFT being traded is supported by UnleashNFTs, the tab will show statistics about price estimation and wash trading for the NFT, Collection, and Marketplace. After reviewing the analytics provided by UnleashNFTs-snaps, the transaction initiator can accept or reject the transaction.
 
-## Demo
-<p align="center">
-    <img src="assets/unleashnfts-snap-demo.gif">
-    <br>
-</p>
+## Cloning
 
-<a href="https://www.youtube.com/watch?v=6C-iJ3vZcYc" title="UnleashNFTS MetaMask Snap"><img src="assets/unleashnfts-snap-demo.gif" alt="UnleashNfts Snap Demo" /></a>
+This repository contains GitHub Actions that you may find useful, see
+`.github/workflows` and [Releasing & Publishing](https://github.com/MetaMask/template-snap-monorepo/edit/main/README.md#releasing--publishing)
+below for more information.
 
-## Limitations
-- Only Opensea Marketplace is supported.
-- This snap can provide insights for NFTs only in Ethereum and Polygon chain.
-- Handling API key can be more secured compared to the current approach.
-- Insights are available for limited number of NFTs for now.
+If you clone or create this repository outside the MetaMask GitHub organization,
+you probably want to run `./scripts/cleanup.sh` to remove some files that will
+not work properly outside the MetaMask GitHub organization.
 
-## Disclaimer 
-This is not investment advice it is only meant for informational purposes. Please consult with your investment, tax, or legal advisor before making any investment decisions.
+If you don't wish to use any of the existing GitHub actions in this repository,
+simply delete the `.github/workflows` directory.
+
+## Contributing
+
+### Testing and Linting
+
+Run `yarn test` to run the tests once.
+
+Run `yarn lint` to run the linter, or run `yarn lint:fix` to run the linter and
+fix any automatically fixable issues.
+
+### Using NPM packages with scripts
+
+Scripts are disabled by default for security reasons. If you need to use NPM
+packages with scripts, you can run `yarn allow-scripts auto`, and enable the
+script in the `lavamoat.allowScripts` section of `package.json`.
+
+See the documentation for [@lavamoat/allow-scripts](https://github.com/LavaMoat/LavaMoat/tree/main/packages/allow-scripts)
+for more information.
