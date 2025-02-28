@@ -23,3 +23,7 @@ app/types/api.ts
 !.yarn/releases
 !.yarn/plugins
 **/env.data.json
+
+# these two added newly
+packages/snap/.env
+packages/snap/.env.*

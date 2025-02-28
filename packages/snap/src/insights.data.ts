@@ -1,9 +1,9 @@
 import { hasProperty, isObject } from '@metamask/utils';
-import { UNLEASH_NFTS_API_KEY } from '../env.data.json';
 import { Interface } from 'ethers';
 import { ABIs } from './abi/abis';
 
-const API_ENDPOINT = 'https://api.unleashnfts.com/api/v1';
+const API_ENDPOINT = 'https://unleashnfts.com/api';
+
 
 const warningIcon = '❗';
 
@@ -124,35 +124,22 @@ export const getUnleashNFTsInsightsData = async (
   const options = {
     headers: {
       accept: 'application/json',
-      'x-api-key': UNLEASH_NFTS_API_KEY,
-      //   referer: 'https://unleashnfts.com/'
     },
   };
 
   try {
     const nftMetricsUrl = `${API_ENDPOINT}/nft/${chainId}/${address}/${tokenId}/metrics?currency=usd&metrics=washtrade_suspect_sales&metrics=volume&metrics=washtrade_volume&metrics=washtrade_wallets&time_range=all&include_washtrade=true`;
-    // const marketPlacesUrl = `${API_ENDPOINT}/marketplaces?blockchain=${chainId}&metrics=washtrade_suspect_sales&metrics=washtrade_volume&metrics=washtrade_wallets&sort_by=washtrade_suspect_sales&sort_order=desc&offset=0&limit=30&metrics=volume&time_range=all&include_washtrade=true`;
     const nftPriceEstimateUrl = `${API_ENDPOINT}/nft/${chainId}/${address}/${tokenId}/price-estimate`;
-    // const collectionMetricsUrl = `${API_ENDPOINT}/collection/${chainId}/${address}/metrics?currency=usd&metrics=washtrade_level&metrics=washtrade_volume&metrics=volume&metrics=washtrade_suspect_sales&metrics=washtrade_wallets&time_range=all&include_washtrade=true`;
-
     const [
       nftResponse,
-      // marketPlaceResponse,
       nftPriceEstimateResponse,
-      // collectionResponse,
     ] = await Promise.all([
       fetch(nftMetricsUrl, options),
-      // fetch(marketPlacesUrl, options),
       fetch(nftPriceEstimateUrl, options),
-      // fetch(collectionMetricsUrl, options),
     ]);
 
     const nftResponseJson = await nftResponse.json();
     const nftPriceEstimateResponseJson = await nftPriceEstimateResponse.json();
-
-    // const marketPlaceData = marketPlaceResponseJson.marketplaces.filter(
-    //   (i: any) => i.metadata.id === marketPlace,
-    // )[0];
 
     const results = {
       'NFT: Estimated Price': getNFTData(
@@ -240,6 +227,7 @@ export const getUnleashNFTsInsights = async (
   chainId: string | number,
 ) => {
   try {
+    console.log('transaction -->>', transaction);
     if (
       !isObject(transaction) ||
       !hasProperty(transaction, 'data') ||
@@ -261,12 +249,6 @@ export const getUnleashNFTsInsights = async (
       return { Error: 'Failed to decode transaction data!' };
     }
 
-    if (!UNLEASH_NFTS_API_KEY) {
-      return {
-        Error: 'Unleash NFTs API Key is not available.!',
-      };
-    }
-
     let chainIdInt: number;
     const chainIdStr = String(chainId).split(':')[1];
 
@@ -282,7 +264,7 @@ export const getUnleashNFTsInsights = async (
       abiDecodedData?.tokenId,
       // data.marketPlace,
     );
-
+    
     if (!nftInsights) {
       return {
         Error: 'Problem in fetching insights for this transaction!',
