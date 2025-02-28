@@ -1,4 +1,3 @@
-import type { ComponentProps } from 'react';
 import styled from 'styled-components';
 
 // eslint-disable-next-line no-unused-vars
@@ -78,30 +77,46 @@ export const InstallFlaskButton = () => (
   </Link>
 );
 
-export const ConnectButton = (props: ComponentProps<typeof Button>) => {
+interface ButtonProps {
+  onClick?: () => void;
+  disabled?: boolean;
+}
+
+export const ConnectButton = ({ onClick, disabled = false }: ButtonProps) => {
   return (
-    <Button {...props}>
+    <Button onClick={onClick} disabled={disabled}>
       <FlaskFox />
       <ButtonText>Connect</ButtonText>
     </Button>
   );
 };
 
-export const ReconnectButton = (props: ComponentProps<typeof Button>) => {
+export const ReconnectButton = ({ onClick, disabled = false }: ButtonProps) => {
   return (
-    <Button {...props}>
+    <Button onClick={onClick} disabled={disabled}>
       <FlaskFox />
       <ButtonText>Reconnect</ButtonText>
     </Button>
   );
 };
 
-export const SendHelloButton = (props: ComponentProps<typeof Button>) => {
-  return <Button {...props}>Send message</Button>;
+export const SendHelloButton = ({ onClick, disabled = false }: ButtonProps) => {
+  return (
+    <Button onClick={onClick} disabled={disabled}>
+      Send message
+    </Button>
+  );
 };
 
-export const SendTestTransactionButton = (props: ComponentProps<typeof Button>) => {
-  return <Button {...props}>Test Transaction</Button>;
+export const SendTestTransactionButton = ({
+  onClick,
+  disabled = false,
+}: ButtonProps) => {
+  return (
+    <Button onClick={onClick} disabled={disabled}>
+      Test Transaction
+    </Button>
+  );
 };
 
 export const HeaderButtons = () => {
