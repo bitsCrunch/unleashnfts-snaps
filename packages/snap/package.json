@@ -1,6 +1,6 @@
 {
   "name": "unleashnfts",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "The 'Hello, world!' of MetaMask Snaps, now written in TypeScript.",
   "repository": {
     "type": "git",
@@ -10,7 +10,8 @@
   "main": "./dist/bundle.js",
   "files": [
     "dist/",
-    "snap.manifest.json"
+    "snap.manifest.json",
+    "images/"
   ],
   "scripts": {
     "allow-scripts": "yarn workspace root allow-scripts",
