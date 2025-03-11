@@ -1,5 +1,5 @@
 {
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "UnleashNFTs-snap is a Metamask addon that offers specialised transaction insights when trading NFT on well-known marketplaces like OpenSea, X2y2, etc",
   "proposedName": "unleashNFTs",
   "repository": {
@@ -7,7 +7,7 @@
     "url": "https://github.com/bitsCrunch/unleashnfts-snaps"
   },
   "source": {
-    "shasum": "gYlbjN0hKkVwM+/CgRUYX4w6ptHW/EB8LkUFjeHSp9g=",
+    "shasum": "kI+hJHPqqHhWS9Z7+kGLIenXXJWAWZhhrGsS/Sr2stg=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",

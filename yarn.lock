@@ -3178,7 +3178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metamask/snaps-sdk@npm:^6.10.0, @metamask/snaps-sdk@npm:^6.15.0, @metamask/snaps-sdk@npm:^6.17.0, @metamask/snaps-sdk@npm:^6.17.1, @metamask/snaps-sdk@npm:^6.18.0, @metamask/snaps-sdk@npm:^6.19.0":
+"@metamask/snaps-sdk@npm:^6.15.0, @metamask/snaps-sdk@npm:^6.17.0, @metamask/snaps-sdk@npm:^6.17.1, @metamask/snaps-sdk@npm:^6.18.0, @metamask/snaps-sdk@npm:^6.19.0, @metamask/snaps-sdk@npm:^6.9.0":
   version: 6.19.0
   resolution: "@metamask/snaps-sdk@npm:6.19.0"
   dependencies:
@@ -6655,9 +6655,9 @@ __metadata:
   linkType: hard
 
 "bare-os@npm:^3.0.1":
-  version: 3.5.1
-  resolution: "bare-os@npm:3.5.1"
-  checksum: efa4557079596a572b7d6d4581fcc124d4ff43b61ff8575edb20a19a4fb3011db8699ee379cb02f3416175fa28e820396016bfbef2fbaf3112dcedfc8ae12c5e
+  version: 3.6.0
+  resolution: "bare-os@npm:3.6.0"
+  checksum: c8b2b8973aace16f68298877cbcc1ce212964e3a0af29a6c7e1bf1b93a3ade842b540ea969c1b0c21702c02cd4e717c075b203095738189d6356ea784e2cc80a
   languageName: node
   linkType: hard
 
@@ -19262,6 +19262,7 @@ __metadata:
     "@metamask/eslint-config-jest": ^12.1.0
     "@metamask/eslint-config-nodejs": ^12.1.0
     "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/snaps-sdk": ^6.9.0
     "@metamask/utils": ^10.0.1
     "@types/dotenv": ^6.1.1
     "@typescript-eslint/eslint-plugin": ^5.42.1
@@ -19295,7 +19296,7 @@ __metadata:
     "@metamask/eslint-config-typescript": ^12.1.0
     "@metamask/snaps-cli": ^6.5.2
     "@metamask/snaps-jest": ^8.7.0
-    "@metamask/snaps-sdk": ^6.10.0
+    "@metamask/snaps-sdk": ^6.9.0
     "@types/react": 18.2.4
     "@types/react-dom": 18.2.4
     "@typescript-eslint/eslint-plugin": ^5.42.1
