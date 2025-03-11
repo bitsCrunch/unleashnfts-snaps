@@ -7,12 +7,12 @@
     "url": "https://github.com/bitsCrunch/unleashnfts-snaps"
   },
   "source": {
-    "shasum": "PAy6InRR8t2FkQmPCjtHqLUWkNbJPsdxOm+LfupCTdg=",
+    "shasum": "4AsfPqP4pLlP58MKn6ugCNBqOOINDFdoLPJtToT+utc=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
         "iconPath": "images/unleash-logo.svg",
-        "packageName": "snap",
+        "packageName": "unleashnfts",
         "registry": "https://registry.npmjs.org/"
       }
     }
